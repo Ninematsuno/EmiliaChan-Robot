@@ -24,7 +24,7 @@ jobs:
 
       - name: Run black
 
-        run: black .
+        run: black
 
       - name: Create Pull Request
 
