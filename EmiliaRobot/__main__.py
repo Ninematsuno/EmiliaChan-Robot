@@ -758,7 +758,7 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 1606221784:
             update.effective_message.reply_text(
-                "for Indonesian users, you can donate via DANA"
+                "for Indonesian users, you can donate via DANA or "
                 "[Paypal]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
