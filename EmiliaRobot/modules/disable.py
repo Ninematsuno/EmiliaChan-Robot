@@ -1,10 +1,26 @@
+"""Hatsune Robot main module"""
+# Copyright (C) 2021 - 2022  ZenitsuID, <https://github.com/ZenitsuID.git>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
 import importlib
 from typing import Union
 
 from future.utils import string_types
-from EmiliaRobot import dispatcher
-from EmiliaRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
-from EmiliaRobot.modules.helper_funcs.misc import is_module_loaded
+from HatsuneRobot import dispatcher
+from HatsuneRobot.modules.helper_funcs.handlers import CMD_STARTERS, SpamChecker
+from HatsuneRobot.modules.helper_funcs.misc import is_module_loaded
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
@@ -22,12 +38,12 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
 
-    from EmiliaRobot.modules.helper_funcs.chat_status import (
+    from HatsuneRobot.modules.helper_funcs.chat_status import (
         connection_status,
         is_user_admin,
         user_admin,
     )
-    from EmiliaRobot.modules.sql import disable_sql as sql
+    from HatsuneRobot.modules.sql import disable_sql as sql
 
     DISABLE_CMDS = []
     DISABLE_OTHER = []
@@ -45,87 +61,54 @@ if is_module_loaded(FILENAME):
                 DISABLE_CMDS.extend(command)
                 if admin_ok:
                     ADMIN_CMDS.extend(command)
+            sql.disableable_cache(command)
 
         def check_update(self, update):
             if isinstance(update, Update) and update.effective_message:
                 message = update.effective_message
 
-                if message.text and len(message.text) > 1:
-                    fst_word = message.text.split(None, 1)[0]
-                    if len(fst_word) > 1 and any(
-                        fst_word.startswith(start) for start in CMD_STARTERS
-                    ):
-                        args = message.text.split()[1:]
-                        command = fst_word[1:].split("@")
-                        command.append(message.bot.username)
+                if message.text and len(message.text) > 1 and any(message.text.startswith(start) for start in CMD_STARTERS):
+                    command = message.text[1:message.entities[0].length]
+                    args = message.text.split()[1:]
+                    command = command.split('@')
+                    command.append(message.bot.username)
 
-                        if not (
-                            command[0].lower() in self.command
-                            and command[1].lower() == message.bot.username.lower()
-                        ):
-                            return None
+                    if not (command[0].lower() in self.command
+                            and command[1].lower() == message.bot.username.lower()):
+                        return None
+
+                    filter_result = self.filters(update)
+                    if filter_result:
                         chat = update.effective_chat
                         user = update.effective_user
-                        if user.id == 1087968824:
-                            user_id = chat.id
-                        else:
-                            user_id = user.id
-                        if SpamChecker.check_user(user_id):
-                            return None
-                        filter_result = self.filters(update)
-                        if filter_result:
-                            # disabled, admincmd, user admin
-                            if sql.is_command_disabled(chat.id, command[0].lower()):
-                                # check if command was disabled
-                                is_disabled = command[
-                                    0
-                                ] in ADMIN_CMDS and is_user_admin(chat, user.id)
-                                if not is_disabled:
-                                    return None
+                        # disabled, admincmd, user admin
+                        if sql.is_command_disabled(chat.id, command[0].lower()):
+                            # check if command was disabled
+                            is_disabled = command[0] in ADMIN_CMDS and is_user_admin(chat, user.id)
+                            if not is_disabled and sql.is_disable_del(chat.id):
+                                # disabled and should delete
+                                update.effective_message.delete()
+                            if not is_disabled:
+                                return None
+                            else:
                                 return args, filter_result
 
-                            return args, filter_result
+                        return args, filter_result
+                    else:
                         return False
 
+
     class DisableAbleMessageHandler(MessageHandler):
-        def __init__(self, filters, callback, friendly, **kwargs):
-
-            super().__init__(filters, callback, **kwargs)
-            DISABLE_OTHER.append(friendly)
-            self.friendly = friendly
-            if filters:
-                self.filters = Filters.update.messages & filters
-            else:
-                self.filters = Filters.update.messages
+        def __init__(self, pattern, callback, friendly="", **kwargs):
+            super().__init__(pattern, callback, **kwargs)
+            DISABLE_OTHER.append(friendly or pattern)
+            sql.disableable_cache(friendly or pattern)
+            self.friendly = friendly or pattern
 
         def check_update(self, update):
-
-            chat = update.effective_chat
-            message = update.effective_message
-            filter_result = self.filters(update)
-
-            try:
-                args = message.text.split()[1:]
-            except:
-                args = []
-
-            if super().check_update(update):
-                if sql.is_command_disabled(chat.id, self.friendly):
-                    return False
-                return args, filter_result
-
-    class DisableAbleRegexHandler(RegexHandler):
-        def __init__(self, pattern, callback, friendly="", filters=None, **kwargs):
-            super().__init__(pattern, callback, filters, **kwargs)
-            DISABLE_OTHER.append(friendly)
-            self.friendly = friendly
-
-        def check_update(self, update):
-            chat = update.effective_chat
-            if super().check_update(update):
-                if sql.is_command_disabled(chat.id, self.friendly):
-                    return False
-                return True
+            if isinstance(update, Update) and update.effective_message:
+                chat = update.effective_chat
+                return self.filters(update) and not sql.is_command_disabled(chat.id, self.friendly)
 
     @connection_status
     @user_admin
@@ -155,7 +138,7 @@ if is_module_loaded(FILENAME):
         args = context.args
         chat = update.effective_chat
         if len(args) >= 1:
-            disable_module = "EmiliaRobot.modules." + args[0].rsplit(".", 1)[0]
+            disable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(disable_module)
@@ -229,7 +212,7 @@ if is_module_loaded(FILENAME):
         chat = update.effective_chat
 
         if len(args) >= 1:
-            enable_module = "EmiliaRobot.modules." + args[0].rsplit(".", 1)[0]
+            enable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(enable_module)
