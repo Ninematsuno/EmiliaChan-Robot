@@ -68,9 +68,8 @@ LOGGER.info("|      Alita_Robot     |")
 
 LOGGER.info("------------------------")
 
-LOGGER.info(f"Version: {Config.VERSION}")
 
-LOGGER.info(f"Owner: {str(Config.OWNER_ID)}")
+
 
 LOGGER.info("Source Code: https://github.com/DivideProjects/Alita_Robot\n")
 
