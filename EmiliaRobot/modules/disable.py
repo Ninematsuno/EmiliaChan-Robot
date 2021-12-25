@@ -45,54 +45,87 @@ if is_module_loaded(FILENAME):
                 DISABLE_CMDS.extend(command)
                 if admin_ok:
                     ADMIN_CMDS.extend(command)
-            sql.disableable_cache(command)
 
         def check_update(self, update):
             if isinstance(update, Update) and update.effective_message:
                 message = update.effective_message
 
-                if message.text and len(message.text) > 1 and any(message.text.startswith(start) for start in CMD_STARTERS):
-                    command = message.text[1:message.entities[0].length]
-                    args = message.text.split()[1:]
-                    command = command.split('@')
-                    command.append(message.bot.username)
+                if message.text and len(message.text) > 1:
+                    fst_word = message.text.split(None, 1)[0]
+                    if len(fst_word) > 1 and any(
+                        fst_word.startswith(start) for start in CMD_STARTERS
+                    ):
+                        args = message.text.split()[1:]
+                        command = fst_word[1:].split("@")
+                        command.append(message.bot.username)
 
-                    if not (command[0].lower() in self.command
-                            and command[1].lower() == message.bot.username.lower()):
-                        return None
-
-                    filter_result = self.filters(update)
-                    if filter_result:
+                        if not (
+                            command[0].lower() in self.command
+                            and command[1].lower() == message.bot.username.lower()
+                        ):
+                            return None
                         chat = update.effective_chat
                         user = update.effective_user
-                        # disabled, admincmd, user admin
-                        if sql.is_command_disabled(chat.id, command[0].lower()):
-                            # check if command was disabled
-                            is_disabled = command[0] in ADMIN_CMDS and is_user_admin(chat, user.id)
-                            if not is_disabled and sql.is_disable_del(chat.id):
-                                # disabled and should delete
-                                update.effective_message.delete()
-                            if not is_disabled:
-                                return None
-                            else:
+                        if user.id == 1087968824:
+                            user_id = chat.id
+                        else:
+                            user_id = user.id
+                        if SpamChecker.check_user(user_id):
+                            return None
+                        filter_result = self.filters(update)
+                        if filter_result:
+                            # disabled, admincmd, user admin
+                            if sql.is_command_disabled(chat.id, command[0].lower()):
+                                # check if command was disabled
+                                is_disabled = command[
+                                    0
+                                ] in ADMIN_CMDS and is_user_admin(chat, user.id)
+                                if not is_disabled:
+                                    return None
                                 return args, filter_result
 
-                        return args, filter_result
-                    else:
+                            return args, filter_result
                         return False
 
-
     class DisableAbleMessageHandler(MessageHandler):
-        def __init__(self, pattern, callback, friendly="", **kwargs):
-            super().__init__(pattern, callback, **kwargs)
-            DISABLE_OTHER.append(friendly or pattern)
-            sql.disableable_cache(friendly or pattern)
-            self.friendly = friendly or pattern
+        def __init__(self, filters, callback, friendly, **kwargs):
+
+            super().__init__(filters, callback, **kwargs)
+            DISABLE_OTHER.append(friendly)
+            self.friendly = friendly
+            if filters:
+                self.filters = Filters.update.messages & filters
+            else:
+                self.filters = Filters.update.messages
 
         def check_update(self, update):
-            if isinstance(update, Update) and update.effective_message:
-                chat = update.effective_chat
-                return self.filters(update) and not sql.is_command_disabled(chat.id, self.friendly)
+
+            chat = update.effective_chat
+            message = update.effective_message
+            filter_result = self.filters(update)
+
+            try:
+                args = message.text.split()[1:]
+            except:
+                args = []
+
+            if super().check_update(update):
+                if sql.is_command_disabled(chat.id, self.friendly):
+                    return False
+                return args, filter_result
+
+    class DisableAbleRegexHandler(RegexHandler):
+        def __init__(self, pattern, callback, friendly="", filters=None, **kwargs):
+            super().__init__(pattern, callback, filters, **kwargs)
+            DISABLE_OTHER.append(friendly)
+            self.friendly = friendly
+
+        def check_update(self, update):
+            chat = update.effective_chat
+            if super().check_update(update):
+                if sql.is_command_disabled(chat.id, self.friendly):
+                    return False
+                return True
 
     @connection_status
     @user_admin
@@ -122,7 +155,7 @@ if is_module_loaded(FILENAME):
         args = context.args
         chat = update.effective_chat
         if len(args) >= 1:
-            disable_module = "EmiliaRobot.modules." + args[0].rsplit(".", 1)[0]
+            disable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(disable_module)
@@ -196,7 +229,7 @@ if is_module_loaded(FILENAME):
         chat = update.effective_chat
 
         if len(args) >= 1:
-            enable_module = "EmiliaRobot.modules." + args[0].rsplit(".", 1)[0]
+            enable_module = "SaitamaRobot.modules." + args[0].rsplit(".", 1)[0]
 
             try:
                 module = importlib.import_module(enable_module)
@@ -287,6 +320,7 @@ if is_module_loaded(FILENAME):
 ❂ /cmds*:* check the current status of disabled commands
 
 *Admins only:*
+
 ❂ /enable <cmd name>*:* enable that command
 ❂ /disable <cmd name>*:* disable that command
 ❂ /enablemodule <module name>*:* enable all commands in that module
