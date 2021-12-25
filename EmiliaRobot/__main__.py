@@ -110,9 +110,6 @@ buttons = [
 ]
 
 HELP_STRINGS = """
-Hey {} !
-My name is Emilia.
-
 I am a group management bot, here to help you get around and keep the order in your groups!
 I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
 
@@ -123,12 +120,12 @@ Helpful commands:
 
 All commands can be used with the following: / or !"""
 
-EMI_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
+Emilia_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @ZenitsuID \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+You can support the project by contacting @ZenitsuID
+Supporting isnt always financial!
+Those who cannot provide monetary support are welcome to help us develop the bot."""
 
 IMPORTED = {}
 MIGRATEABLE = []
