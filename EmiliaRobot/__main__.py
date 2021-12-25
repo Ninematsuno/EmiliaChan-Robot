@@ -91,22 +91,21 @@ Hit the /help to see available command.
 
 buttons = [
     [
-        InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅ​", callback_data="help_back"),
+        InlineKeyboardButton(text="Help & Command​", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="ᴀʙᴏᴜᴛ", callback_data="Emilia_"),
-        InlineKeyboardButton(text="ᴛʀʏ ɪɴʟɪɴᴇ​", switch_inline_query_current_chat=""),
+        InlineKeyboardButton(text="About", callback_data="Emilia_"),
+        InlineKeyboardButton(text="Try Inline​", switch_inline_query_current_chat=""),
     ],
     [
         InlineKeyboardButton(
-            text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ​", url="https://github.com/ZenitsuID/EmiliaRobot"
+            text="Source Code​", url="https://github.com/ZenitsuID/Emilia-Robot"
         ),
-        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="Support​", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
     [
         InlineKeyboardButton(
-            text="➗ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➗",
-            url=f"t.me/{dispatcher.bot.username}?startgroup=new",
+            text="➗ Add Emilia To Your Group​ ➗", url="t.me/Emilia_xbot?startgroup=new"
         ),
     ],
 ]
@@ -114,12 +113,12 @@ buttons = [
 HELP_STRINGS = """
 Click on the button bellow to get description about specifics command."""
 
-EMI_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
+Emilia_IMG = "https://telegra.ph/file/322db0b3880fb5ee0ee0c.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @ZenitsuID \
- Supporting isnt always financial! \
- Those who cannot provide monetary support are welcome to help us develop the bot at ."""
+You can support the project by contacting @ZenitsuID
+Supporting isnt always financial!
+Those who cannot provide monetary support are welcome to help us develop the bot."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -205,7 +204,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Go Back", callback_data="help_back"
+                                    text="Back", callback_data="help_back"
                                 )
                             ]
                         ]
@@ -326,7 +325,7 @@ def help_button(update, context):
                 parse_mode=ParseMode.MARKDOWN,
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton(text="Go Back", callback_data="help_back")]]
+                    [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
                 ),
             )
 
@@ -386,28 +385,28 @@ def Emilia_about_callback(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ᴀᴅᴍɪɴs​", callback_data="Emilia_admin"
+                            text="Admins​", callback_data="Emilia_admin"
                         ),
                         InlineKeyboardButton(
-                            text="ɴᴏᴛᴇs​", callback_data="Emilia_notes"
-                        ),
-                    ],
-                    [
-                        InlineKeyboardButton(
-                            text="sᴜᴘᴘᴏʀᴛ​", callback_data="Emilia_support"
-                        ),
-                        InlineKeyboardButton(
-                            text="ᴄʀᴇᴅɪᴛs​", callback_data="Emilia_credit"
+                            text="Notes​", callback_data="Emilia_notes"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴍᴜsɪᴄᴘʟᴀʏᴇʀ​", callback_data="source_"
+                            text="Support​", callback_data="Emilia_support"
+                        ),
+                        InlineKeyboardButton(
+                            text="Credits​", callback_data="Emilia_credit"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_back"
+                            text="Bot List", callback_data="source_"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
+                            text="Back​", callback_data="Emilia_back"
                         ),
                     ],
                 ]
@@ -432,7 +431,7 @@ def Emilia_about_callback(update, context):
     elif query.data == "Emilia_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            f"\nCongragulations, {dispatcher.bot.first_name} now ready to manage your group."
+            "\nCongragulations, Emilia now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -442,7 +441,7 @@ def Emilia_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="Back​", callback_data="Emilia_")]]
             ),
         )
 
@@ -454,24 +453,24 @@ def Emilia_about_callback(update, context):
             f"\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="Back​", callback_data="Emilia_")]]
             ),
         )
     elif query.data == "Emilia_support":
         query.message.edit_text(
-            text=f"*๏ {dispatcher.bot.first_name} support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on ZenitsuID.",
+            text="*๏ Emilia support chats*"
+            "\nJoin My Logs Group/Federation for see or report a problem on ZenitsuID.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url="t.me/EmiliaSupport"),
+                        InlineKeyboardButton(text="Logs​", url="t.me/HatsuneMikuProject"),
                         InlineKeyboardButton(
-                            text="ᴜᴘᴅᴀᴛᴇs​", url="https://t.me/ProjectEmilia"
+                            text="Feds​", url="https://t.me/HatsuneMikuProject"
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_"),
+                        InlineKeyboardButton(text="Back​", callback_data="Emilia_"),
                     ],
                 ]
             ),
@@ -480,7 +479,7 @@ def Emilia_about_callback(update, context):
     elif query.data == "Emilia_credit":
         query.message.edit_text(
             text=f"<b>๏ Credis for ZenitsuID</b>\n"
-            f"\nHere Developers Making The Emilia",
+            f"\nHere Developers Making The Emilia's",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -488,7 +487,7 @@ def Emilia_about_callback(update, context):
                         InlineKeyboardButton(text="ZenitsuID", url="t.me/ZenitsuID"),
                     ],
                     [
-                        InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_"),
+                        InlineKeyboardButton(text="Back​", callback_data="Emilia_"),
                     ],
                 ]
             ),
@@ -499,21 +498,13 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="๏›› List of bots managed by the ZenitsuID Project."
+            "\n\n• *Hatsune Miku:* @HatsuneMikuRobot"
+            "\n\n• *Emilia:* @Emilia_xbot",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="Back​", callback_data="Emilia_")]]
             ),
         )
     elif query.data == "source_back":
@@ -562,7 +553,7 @@ def get_help(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="ʜᴇʟᴘ & ᴄᴏᴍᴍᴀɴᴅ​",
+                            text="Help & Command",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
                     ]
@@ -583,7 +574,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="Back​", callback_data="help_back")]]
             ),
         )
 
@@ -655,7 +646,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="ɢᴏ ʙᴀᴄᴋ​",
+                                text="Back​",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -730,7 +721,7 @@ def get_settings(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="sᴇᴛᴛɪɴɢs​",
+                                text="Settings​",
                                 url="t.me/{}?start=stngs_{}".format(
                                     context.bot.username, chat.id
                                 ),
@@ -755,7 +746,7 @@ def donate(update: Update, context: CallbackContext):
             DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True
         )
 
-        if OWNER_ID != 1606221784:
+        if OWNER_ID != 1334185337:
             update.effective_message.reply_text(
                 "I'm free for everyone ❤️ If you wanna make me smile, just join"
                 "[My Channel]({})".format(DONATION_LINK),
