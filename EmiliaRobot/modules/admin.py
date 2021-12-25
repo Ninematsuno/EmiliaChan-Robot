@@ -27,9 +27,6 @@ from EmiliaRobot.modules.helper_funcs.extraction import (
 from EmiliaRobot.modules.log_channel import loggable
 from EmiliaRobot.modules.helper_funcs.alternate import send_message
 
-
-@bot_admin
-@user_admin
 def Emilia_asu_callback(update, context):
     query = update.callback_query
     if query.data == "Emilia_":
@@ -57,7 +54,26 @@ def Emilia_asu_callback(update, context):
                         ),
                     ],
                 ]
-
+            ),
+        )
+    elif query.data == "Emilia_back":
+        first_name = update.effective_user.first_name
+        uptime = get_readable_time((time.time() - StartTime))
+        query.message.edit_text(
+            PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users(),
+                sql.num_chats(),
+            ),
+            reply_markup=InlineKeyboardMarkup(buttons),
+            parse_mode=ParseMode.MARKDOWN,
+            timeout=60,
+            disable_web_page_preview=True,
+        )
+             
+@bot_admin
+@user_admin
 def set_sticker(update: Update, context: CallbackContext):
     msg = update.effective_message
     chat = update.effective_chat
