@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hey there {} !*
-My name is *Emilia*,
+My name is Emilia,
 I'm here to help you manage your groups!
 Hit /help to find out more about how to use me to my full potential.
 """
@@ -112,11 +112,6 @@ buttons = [
 HELP_STRINGS = """
 I am a group management bot, here to help you get around and keep the order in your groups!
 I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
-
-Helpful commands:
- - /start: Starts me! You've probably already used this!
- - /help: Sends this message; I'll tell you more about myself!
- - /donate: Gives you info on how to support me and my creator.
 
 All commands can be used with the following: / or !"""
 
@@ -211,7 +206,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             [
                                 InlineKeyboardButton(
-                                    text="Go Back", callback_data="help_back"
+                                    text="Back", callback_data="help_back"
                                 )
                             ]
                         ]
@@ -413,7 +408,7 @@ def Emilia_about_callback(update, context):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_back"
+                            text="ʙᴀᴄᴋ​", callback_data="Emilia_back"
                         ),
                     ],
                 ]
@@ -448,7 +443,7 @@ def Emilia_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="Emilia_")]]
             ),
         )
 
@@ -460,7 +455,7 @@ def Emilia_about_callback(update, context):
             f"\n\nYou can also set buttons for notes and filters (refer help menu)",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="Emilia_")]]
             ),
         )
     elif query.data == "Emilia_support":
@@ -477,7 +472,7 @@ def Emilia_about_callback(update, context):
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_"),
+                        InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="Emilia_"),
                     ],
                 ]
             ),
@@ -485,7 +480,7 @@ def Emilia_about_callback(update, context):
 
     elif query.data == "Emilia_credit":
         query.message.edit_text(
-            text=f"<b>๏ Credis for ZenitsuID</b>\n"
+            text=f"<b>๏ Credits for ZenitsuID</b>\n"
             f"\nHere Developers Making The Emilia",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
@@ -494,7 +489,7 @@ def Emilia_about_callback(update, context):
                         InlineKeyboardButton(text="ZenitsuID", url="t.me/ZenitsuID"),
                     ],
                     [
-                        InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_"),
+                        InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="Emilia_"),
                     ],
                 ]
             ),
@@ -519,7 +514,7 @@ def Source_about_callback(update, context):
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+                [[InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="Emilia_")]]
             ),
         )
     elif query.data == "source_back":
@@ -589,7 +584,7 @@ def get_help(update: Update, context: CallbackContext):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="ʙᴀᴄᴋ​", callback_data="help_back")]]
             ),
         )
 
@@ -763,8 +758,8 @@ def donate(update: Update, context: CallbackContext):
 
         if OWNER_ID != 1606221784:
             update.effective_message.reply_text(
-                "I'm free for everyone ❤️ If you wanna make me smile, just join"
-                "[My Channel]({})".format(DONATION_LINK),
+                "for Indonesian users, you can donate via DANA"
+                "[Paypal]({})".format(DONATION_LINK),
                 parse_mode=ParseMode.MARKDOWN,
             )
     else:
