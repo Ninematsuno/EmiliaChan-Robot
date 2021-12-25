@@ -151,11 +151,11 @@ def connect_chat(update, context):
             if gethistory:
                 buttons = [
                     InlineKeyboardButton(
-                        text="❎ Close button",
+                        text="Close button",
                         callback_data="connect_close",
                     ),
                     InlineKeyboardButton(
-                        text="🧹 Clear history",
+                        text="Clear history",
                         callback_data="connect_clear",
                     ),
                 ]
@@ -170,7 +170,7 @@ def connect_chat(update, context):
                 )
                 buttons.append(
                     InlineKeyboardButton(
-                        text="🔌 Disconnect",
+                        text="Disconnect",
                         callback_data="connect_disconnect",
                     ),
                 )
@@ -412,7 +412,6 @@ This allows you to connect to a chat's database, and add things to it without th
 ❂ /helpconnect: List available commands that can be used remotely
 
 *Admin only:*
-
 ❂ /allowconnect <yes/no>: allow a user to connect to a chat
 """
 

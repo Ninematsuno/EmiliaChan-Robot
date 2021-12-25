@@ -53,7 +53,7 @@ async def _(event):
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
-            msg += f"❍[{title}]({link})\n**{desc}**\n\n"
+            msg += f"[{title}]({link})\n**{desc}**\n\n"
         except IndexError:
             break
     await webevent.edit(
@@ -287,7 +287,7 @@ __help__ = """
 ❂ /github <username>*:* Get information about a GitHub user.
 ❂ /country <country name>*:* Gathering info about given country
 ❂ /imdb <Movie name>*:* Get full info about a movie with imdb.com
-❂ Skyzu <query>*:* Skyzu answers the query
+❂ Emilia <query>*:* Emilia answers the query
 
-  💡Ex: `Skyzu where is Japan?`
+  💡Ex: `Emilia where is Japan?`
 """

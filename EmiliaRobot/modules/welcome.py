@@ -1163,7 +1163,7 @@ def user_captcha_button(update: Update, context: CallbackContext):
             except:
                 pass
             kicked_msg = f"""
-            ❌ [{escape_markdown(join_usr_data.first_name)}](tg://user?id={join_user}) failed the captcha and was kicked.
+            [{escape_markdown(join_usr_data.first_name)}](tg://user?id={join_user}) failed the captcha and was kicked.
             """
             query.answer(text="Wrong answer")
             res = chat.unban_member(join_user)

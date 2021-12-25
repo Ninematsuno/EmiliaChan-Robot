@@ -82,7 +82,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Skyzu Chatbot enable by {}.".format(
+                "Emilia Chatbot enable by {}.".format(
                     mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
@@ -163,7 +163,7 @@ __help__ = """
 Chatbot utilizes the Kuki's api which allows Kuki to talk and provide a more interactive group chat experience.
 
 *Admins only Commands*:
-➢ `/Chatbot`*:* Shows chatbot control panel
+❂ `/Chatbot`*:* Shows chatbot control panel
   
 *Powered by ItelAi*
 """

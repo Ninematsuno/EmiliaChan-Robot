@@ -171,7 +171,7 @@ def del_fed(update: Update, context: CallbackContext):
             [
                 [
                     InlineKeyboardButton(
-                        text="⚠️ Delete Federation ⚠️",
+                        text="Delete Federation",
                         callback_data="rmfed_{}".format(fed_id),
                     ),
                 ],
@@ -537,7 +537,7 @@ def fed_admin(update: Update, context: CallbackContext):
     info = sql.get_fed_info(fed_id)
 
     text = "<b>Federation Admin {}:</b>\n\n".format(info["fname"])
-    text += "👑 Owner:\n"
+    text += "*Owner*:\n"
     owner = bot.get_chat(info["owner"])
     try:
         owner_name = owner.first_name + " " + owner.last_name
@@ -547,9 +547,9 @@ def fed_admin(update: Update, context: CallbackContext):
 
     members = sql.all_fed_members(fed_id)
     if len(members) == 0:
-        text += "\n🔱 There are no admins in this federation"
+        text += "\n*There are no admins in this federation*"
     else:
-        text += "\n🔱 Admin:\n"
+        text += "\n*Admin*:\n"
         for x in members:
             user = bot.get_chat(x)
             text += " • {}\n".format(mention_html(user.id, user.first_name))
@@ -624,7 +624,7 @@ def fed_ban(update: Update, context: CallbackContext):
         message.reply_text("Wolves cannot be fed banned!")
         return
 
-    if user_id in [777000, 1087968824]:
+    if user_id in [777000, 1334185337]:
         message.reply_text("Fool! You can't attack Telegram's native tech!")
         return
 
@@ -2360,7 +2360,7 @@ def get_chat(chat_id, chat_data):
 
 def fed_owner_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
-        """*👑 Fed Owner Only:*
+        """*Fed Owner Only:*
  • `/newfed <fed_name>`*:* Creates a Federation, One allowed per user
  • `/renamefed <fed_id> <new_fed_name>`*:* Renames the fed id to a new name
  • `/delfed <fed_id>`*:* Delete a Federation, and any information related to it. Will not cancel blocked users
@@ -2378,7 +2378,7 @@ def fed_owner_help(update: Update, context: CallbackContext):
 
 def fed_admin_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
-        """*🔱 Fed Admins:*
+        """*Fed Admins:*
  • `/fban <user> <reason>`*:* Fed bans a user
  • `/unfban <user> <reason>`*:* Removes a user from a fed ban
  • `/fedinfo <fed_id>`*:* Information about the specified Federation
@@ -2395,7 +2395,7 @@ def fed_admin_help(update: Update, context: CallbackContext):
 
 def fed_user_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
-        """*🎩 Any user:*
+        """*Any user:*
 
 ❂ /fbanstat*:* Shows if you/or the user you are replying to or their username is fbanned somewhere or not
 ❂ /fednotif <on/off>*:* Federation settings not in PM when there are users who are fbaned/unfbanned

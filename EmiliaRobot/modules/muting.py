@@ -41,7 +41,7 @@ from telegram.utils.helpers import mention_html
 def check_user(user_id: int, bot: Bot, chat: Chat) -> Optional[str]:
 
     if not user_id:
-        reply = "⚠️ User not found"
+        reply = "User not found"
         return reply
 
     try:
@@ -103,7 +103,7 @@ def mute(update: Update, context: CallbackContext) -> str:
             [
                 [
                     InlineKeyboardButton(
-                        "🔄  Unmute", callback_data="unmute_({})".format(member.user.id)
+                        "Unmute", callback_data="unmute_({})".format(member.user.id)
                     )
                 ]
             ]
@@ -169,7 +169,7 @@ def unmute(update: Update, context: CallbackContext) -> str:
             pass
         bot.sendMessage(
             chat.id,
-            "{} [<code>{}</code>] {} 🔊 Unmuted.\nReason: <code>{}</code>".format(
+            "{} [<code>{}</code>] {} Unmuted.\nReason: <code>{}</code>".format(
                 mention_html(member.user.id, member.user.first_name),
                 member.user.id,
                 reason,
@@ -246,7 +246,7 @@ def temp_mute(update: Update, context: CallbackContext) -> str:
                 [
                     [
                         InlineKeyboardButton(
-                            "🔄  Unmute",
+                            "Unmute",
                             callback_data="unmute_({})".format(member.user.id),
                         )
                     ]
@@ -314,7 +314,7 @@ def button(update: Update, context: CallbackContext) -> str:
             )
     else:
         update.effective_message.edit_text(
-            "⚠️ This user is not muted or has left the group!"
+            "This user is not muted or has left the group!"
         )
         return ""
 

@@ -10,7 +10,7 @@ from EmiliaRobot import TEMP_DOWNLOAD_DIRECTORY as path
 from EmiliaRobot import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
 
-water = "./EmiliaRobot/resources/Emilia.png"
+water = "./EmiliaRobot/resources/Emilia.jpg"
 client = tbot
 
 

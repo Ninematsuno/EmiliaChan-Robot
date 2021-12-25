@@ -113,7 +113,7 @@ def warn(
             [
                 [
                     InlineKeyboardButton(
-                        "❌ Remove", callback_data="rm_warn({})".format(user.id)
+                        "Remove", callback_data="rm_warn({})".format(user.id)
                     )
                 ]
             ]
@@ -236,7 +236,7 @@ def reset_warns(update: Update, context: CallbackContext) -> str:
             f"<b>User:</b> {mention_html(warned.id, warned.first_name)}"
         )
     else:
-        message.reply_text("⚠️ No user has been designated!")
+        message.reply_text("No user has been designated!")
     return ""
 
 

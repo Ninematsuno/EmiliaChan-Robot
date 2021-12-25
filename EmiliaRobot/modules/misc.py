@@ -110,12 +110,12 @@ def wiki(update: Update, context: CallbackContext):
         update.effective_message.reply_text("Enter keywords!")
     else:
         try:
-            pertama = update.effective_message.reply_text("🔄 Loading...")
+            pertama = update.effective_message.reply_text("Loading...")
             keyboard = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🔧 More Info...",
+                            text="More Info...",
                             url=wikipedia.page(kueri).url,
                         )
                     ]
@@ -128,12 +128,12 @@ def wiki(update: Update, context: CallbackContext):
                 reply_markup=keyboard,
             )
         except wikipedia.PageError as e:
-            update.effective_message.reply_text(f"⚠ Error: {e}")
+            update.effective_message.reply_text(f"Error: {e}")
         except BadRequest as et:
-            update.effective_message.reply_text(f"⚠ Error: {et}")
+            update.effective_message.reply_text(f"Error: {et}")
         except wikipedia.exceptions.DisambiguationError as eet:
             update.effective_message.reply_text(
-                f"⚠ Error\n There are too many query! Express it more!\nPossible query result:\n{eet}"
+                f"Error\n There are too many query! Express it more!\nPossible query result:\n{eet}"
             )
 
 
