@@ -57,8 +57,6 @@ def Emilia_asu_callback(update, context):
                         ),
                     ],
                 ]
-            ),
-        )
 
 def set_sticker(update: Update, context: CallbackContext):
     msg = update.effective_message
