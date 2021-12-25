@@ -82,7 +82,7 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 *Hey there {} !*
-My name is Emilia.
+My name is *Emilia*,
 I'm here to help you manage your groups!
 Hit /help to find out more about how to use me to my full potential.
 """
@@ -97,7 +97,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ​", url="https://github.com/ZenitsuID/EmiliaRobot"
+            text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ​", url="https://github.com/ZenitsuID/Emilia-Robot"
         ),
         InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
