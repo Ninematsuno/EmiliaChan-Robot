@@ -548,24 +548,30 @@ def snipe(update: Update, context: CallbackContext):
 
 
 __help__ = """
-*User Commands:*
 
-❂ /kickme*:* kicks the user who issued the command
+Some people need to be publicly banned; spammers, annoyances, or just trolls.
 
-*Admins only:*
-❂ /ban <userhandle>*:* bans a user. (via handle, or reply)
-❂ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
-❂ /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unban <userhandle>*:* unbans a user. (via handle, or reply)
-❂ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
-❂ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
-❂ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
-❂ /zombies*:* searches deleted accounts
-❂ /zombies clean*:* removes deleted accounts from the group.
-❂ /snipe <chatid> <string>*:* Make me send a message to a specific chat.
+This module allows you to do that easily, by exposing some common actions, so everyone will see!
+
+*Available commands are:*
+- /ban <userhandle>*:* bans a user. (via handle, or reply)
+- /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
+- /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+- /unban <userhandle>*:* unbans a user. (via handle, or reply)
+- /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
+- /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
+- /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
+- /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
+- /zombies*:* searches deleted accounts
+- /zombies clean*:* removes deleted accounts from the group.
+- /snipe <chatid> <string>*:* Make me send a message to a specific chat.
+- /kickme*:* Kick yourself.
+
+All commands work via handle or reply, except banme and kickme(which require no arguments).
+
+*An example of temporarily muting someone:*
+/tmute @username 2h; this mutes a user for 2 hours.
 """
-
 
 __mod_name__ = "Bans/Mutes"
 

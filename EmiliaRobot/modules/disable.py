@@ -316,16 +316,22 @@ if is_module_loaded(FILENAME):
     def __chat_settings__(chat_id, user_id):
         return build_curr_disabled(chat_id)
 
-    __help__ = """
-❂ /cmds*:* check the current status of disabled commands
+__help__ = """
+Here is some help for the Disabling module:
 
-*Admins only:*
+Not everyone wants every feature that the bot offers. Some commands are best when left unused to avoid spam and abuse.
 
-❂ /enable <cmd name>*:* enable that command
-❂ /disable <cmd name>*:* disable that command
-❂ /enablemodule <module name>*:* enable all commands in that module
-❂ /disablemodule <module name>*:* disable all commands in that module
-❂ /listcmds*:* list all possible toggleable commands
+This allows you to disable some commonly used commands, so non-admins can't use them.
+It'll also allow you to autodelete them, stopping people from bluetexting.
+
+- /cmds: check the current status of disabled commands
+
+*Admin only:*
+- /enable <cmd name>*:* Enable a command.
+- /disable <cmd name>*:* Disable a command.
+- /enablemodule <module name>*:* enable all commands in that module.
+- /disablemodule <module name>*:* disable all commands in that module.
+- /listcmds*:* list all possible toggleable commands.
 """
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)

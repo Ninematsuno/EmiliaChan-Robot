@@ -85,6 +85,15 @@ DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
 telethn.add_event_handler(*PURGE_HANDLER)
 telethn.add_event_handler(*DEL_HANDLER)
 
+__help__ = """
+Deleting messages made easy with this command. Bot purges messages all together or individually.
+
+*Admin only:*
+ - /del: deletes the message you replied to
+ - /purge: deletes all messages between this and the replied to message.
+ - /purge <integer X>: deletes the replied message, and X messages following it.
+"""
+
 __mod_name__ = "Purges"
 __command_list__ = ["del", "purge"]
 __handlers__ = [PURGE_HANDLER, DEL_HANDLER]
