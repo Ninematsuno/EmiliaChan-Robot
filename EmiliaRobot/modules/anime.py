@@ -570,7 +570,7 @@ def kayo(update: Update, context: CallbackContext):
 
 
 __help__ = """
- ──「 Anime search 」──                           
+*Anime search*                     
 ❂ /anime <anime>: returns information about the anime.
 ❂ /whatanime: returns source of anime when replied to photo or gif.                                                          
 ❂ /character <character>: returns information about the character.
@@ -582,7 +582,7 @@ __help__ = """
 ❂ /kaizoku <anime>: search an anime on animekaizoku.com
 ❂ /kayo <anime>: search an anime on animekayo.com
 
- 「 Anime Quotes 」
+*Anime Quotes*
 ❂ /animequotes: for anime quotes randomly as photos.
 ❂ /quote: send quotes randomly as text
  """

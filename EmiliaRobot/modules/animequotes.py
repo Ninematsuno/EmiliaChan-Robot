@@ -4,7 +4,7 @@ import html
 import random
 import time
 
-from EmiliaRobot import dispatcher
+from Emiliarobot import dispatcher
 from EmiliaRobot.modules.disable import DisableAbleCommandHandler
 from EmiliaRobot.modules.helper_funcs.chat_status import is_user_admin
 from telegram.ext import (
