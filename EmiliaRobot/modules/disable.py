@@ -316,15 +316,16 @@ if is_module_loaded(FILENAME):
     def __chat_settings__(chat_id, user_id):
         return build_curr_disabled(chat_id)
 
-__help__ = """
-- /cmds*:* check the current status of disabled commands
+    __help__ = """
+❂ /cmds*:* check the current status of disabled commands
 
 *Admins only:*
-- /enable <cmd name>*:* enable that command
-- /disable <cmd name>*:* disable that command
-- /enablemodule <module name>*:* enable all commands in that module
-- /disablemodule <module name>*:* disable all commands in that module
-- /listcmds*:* list all possible toggleable commands
+
+❂ /enable <cmd name>*:* enable that command
+❂ /disable <cmd name>*:* disable that command
+❂ /enablemodule <module name>*:* enable all commands in that module
+❂ /disablemodule <module name>*:* disable all commands in that module
+❂ /listcmds*:* list all possible toggleable commands
 """
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
