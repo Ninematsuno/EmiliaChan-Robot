@@ -10,7 +10,7 @@ from telegram.ext import Filters
 from telegram.utils.helpers import mention_html
 
 import EmiliaRobot.modules.sql.locks_sql as sql
-from EmiliaRobot.modules.helper_funcs.decorators import Hatsunecmd, Hatsunemsg
+from EmiliaRobot.modules.helper_funcs.decorators import Emiliacmd, Emiliamsg
 from EmiliaRobot.modules.sql.approve_sql import is_approved
 from EmiliaRobot import DRAGONS, LOGGER as log, dispatcher
 from EmiliaRobot.modules.helper_funcs.chat_status import (
@@ -129,7 +129,7 @@ def unrestr_members(
             pass
 
 
-@Hatsunecmd(command="locktypes")
+@Emiliacmd(command="locktypes")
 def locktypes(update, context):
     update.effective_message.reply_text(
         "\n • ".join(
@@ -139,7 +139,7 @@ def locktypes(update, context):
     )
 
 
-@Hatsunecmd(command="lock", pass_args=True)
+@Emiliacmd(command="lock", pass_args=True)
 @user_admin
 @loggable
 @typing_action
@@ -245,7 +245,7 @@ def lock(update, context) -> str:  # sourcery no-metrics
     return ""
 
 
-@Hatsunecmd(command="unlock", pass_args=True)
+@Emiliacmd(command="unlock", pass_args=True)
 @user_admin
 @loggable
 @typing_action
@@ -341,7 +341,7 @@ def unlock(update, context) -> str:  # sourcery no-metrics
     return ""
 
 
-@Hatsunemsg((Filters.all & Filters.chat_type.groups), group=PERM_GROUP)
+@Emiliamsg((Filters.all & Filters.chat_type.groups), group=PERM_GROUP)
 @user_not_admin
 def del_lockables(update, context):  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
@@ -478,7 +478,7 @@ def build_lock_message(chat_id):
     return res
 
 
-@Hatsunecmd(command="locks")
+@Emiliacmd(command="locks")
 @user_admin
 @typing_action
 def list_locks(update, context):
