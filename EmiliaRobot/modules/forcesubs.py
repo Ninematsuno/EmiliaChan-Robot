@@ -180,7 +180,7 @@ def config(client, message):
 __help__ = """
 Emilia can mute members who are not subscribed your channel until they subscribe
 When enabled I will mute unsubscribed members and show them a unmute button. When they pressed the button I will unmute them
-*Setup*
+
 *Only creator*
 Add me in your group as admin
 Add me in your channel as admin 
@@ -202,7 +202,7 @@ But then you have many groups, and you don't want this spammer to be in one of y
 *No longer!* With Federation, you can make a ban in one chat overlap with all other chats.\n
 You can even designate federation admins, so your trusted admin can ban all the spammers from chats you want to protect.\n
 
-*Commands:*\n
+*Commands:*
 - /fedownerhelp*:* Provides help for fed creation and owner only commands
 - /fedadminhelp*:* Provides help for fed administration commands
 - /feduserhelp*:* Provides help for commands anyone can use
