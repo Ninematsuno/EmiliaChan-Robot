@@ -210,7 +210,7 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Logomaker"
+__mod_name__ = "Logo"
 
 __help__ = """
 - /logo <text/name> - Create a logo with random view.

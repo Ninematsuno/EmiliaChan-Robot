@@ -139,6 +139,13 @@ async def job_close():
         except Exception as e:
             logger.info(f"Unable To Close Group {chat} - {e}")
 
+__help__ = """
+- /nightmode <userhandle> x(on/off)`*:* Adds Group to NightMode Chats
+
+Note: Night Mode chats get Automatically closed at 12pm(IST)
+"""
+
+__mod_name__ = "Nightmode"
 
 # Run everyday at 12am
 scheduler = AsyncIOScheduler(timezone="Asia/Jakarta")
