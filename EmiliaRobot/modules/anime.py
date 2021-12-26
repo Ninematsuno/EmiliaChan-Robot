@@ -579,7 +579,7 @@ __help__ = """
 - /airing <anime>*:* returns anime airing info.
 - /whatanime <anime>*:* reply to gif or photo.
 - /kaizoku <anime>*:* search an anime on animekaizoku.com
-- /kayo` <anime>*:* search an anime on animekayo.com
+- /kayo <anime>*:* search an anime on animekayo.com
 
 *Anime Quotes*
 - /animequotes*:* for anime quotes randomly as photos.
