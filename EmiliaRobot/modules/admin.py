@@ -308,7 +308,7 @@ def lowpromote(update: Update, context: CallbackContext) -> str:
 
     bot.sendMessage(
         chat.id,
-        f"Lowpromoting a user in <b>{chat.title}<b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
+        f"Low promoting a user in <b>{chat.title}<b>\n\nUser: {mention_html(user_member.user.id, user_member.user.first_name)}\nAdmin: {mention_html(user.id, user.first_name)}",
         parse_mode=ParseMode.HTML,
     )
 
@@ -496,7 +496,7 @@ def refresh_admin(update, _):
     except KeyError:
         pass
 
-    update.effective_message.reply_text("✅ Admins cache refreshed!")
+    update.effective_message.reply_text("Admins cache refreshed!")
 
 
 @connection_status
@@ -608,7 +608,7 @@ def pin(update: Update, context: CallbackContext) -> str:
             msg.reply_text(
                 f"I have pinned a message.",
                 reply_markup=InlineKeyboardMarkup(
-                    [[InlineKeyboardButton("👉 Go to message", url=f"{message_link}")]]
+                    [[InlineKeyboardButton("Go to message", url=f"{message_link}")]]
                 ),
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True,
@@ -675,7 +675,7 @@ def unpin(update: Update, context: CallbackContext):
         except BadRequest as excp:
             if excp.message == "Message to unpin not found":
                 msg.reply_text(
-                    "I can't see pinned message, Maybe already unpined, or pin Message to old 🙂"
+                    "I can't see pinned message, Maybe already unpined, or pin Message to old"
                 )
             else:
                 raise
@@ -710,7 +710,7 @@ def pinned(update: Update, context: CallbackContext) -> str:
             message_link = f"https://t.me/c/{link_chat_id}/{pinned_id}"
 
         msg.reply_text(
-            f"🔽 Pinned on {html.escape(chat.title)}.",
+            f"Pinned on {html.escape(chat.title)}.",
             reply_to_message_id=msg_id,
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
@@ -718,7 +718,7 @@ def pinned(update: Update, context: CallbackContext) -> str:
                 [
                     [
                         InlineKeyboardButton(
-                            text="👉 Go to message",
+                            text="Go to message",
                             url=f"https://t.me/{link_chat_id}/{pinned_id}",
                         )
                     ]
@@ -793,7 +793,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "Deleted Account"
         else:
             name = "{}".format(
                 mention_html(
@@ -809,13 +809,13 @@ def adminlist(update, context):
         # if user.username:
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
-            text += "\n 🌏 Creator:"
+            text += "\nCreator:"
             text += "\n<code> • </code>{}\n".format(name)
 
             if custom_title:
                 text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
 
-    text += "\n🌟 Admins:"
+    text += "\nAdmins:"
 
     custom_admin_list = {}
     normal_admin_list = []
@@ -826,7 +826,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "Deleted Account"
         else:
             name = "{}".format(
                 mention_html(
@@ -858,7 +858,7 @@ def adminlist(update, context):
 
     text += "\n"
     for admin_group, value in custom_admin_list.items():
-        text += "\n🚨 <code>{}</code>".format(admin_group)
+        text += "\n<code>{}</code>".format(admin_group)
         for admin in value:
             text += "\n<code> • </code>{}".format(admin)
         text += "\n"
