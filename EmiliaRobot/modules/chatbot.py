@@ -54,7 +54,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Hatsune Miku Chatbot disable by {}.".format(
+                "Skyzu Chatbot disable by {}.".format(
                     mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
@@ -82,7 +82,7 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Hatsune Miku Chatbot enable by {}.".format(
+                "Emilia Chatbot enable by {}.".format(
                     mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
@@ -146,7 +146,7 @@ def chatbot(update: Update, context: CallbackContext):
 
 def list_all_chats(update: Update, context: CallbackContext):
     chats = sql.get_all_kuki_chats()
-    text = "<b>HatsuneMikuRobot Enabled Chats</b>\n"
+    text = "<b>Emilia Enabled Chats</b>\n"
     for chat in chats:
         try:
             x = context.bot.get_chat(int(*chat))
@@ -164,9 +164,11 @@ Chatbot utilizes the Kuki's api which allows Kuki to talk and provide a more int
 
 *Admins only Commands*:
 ❂ `/Chatbot`*:* Shows chatbot control panel
+  
+*Powered by ItelAi*
 """
 
-__mod_name__ = "Chatbot"
+__mod_name__ = "ChatBot"
 
 
 CHATBOTK_HANDLER = CommandHandler("chatbot", kuki, run_async=True)

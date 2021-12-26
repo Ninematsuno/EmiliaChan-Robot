@@ -28,7 +28,7 @@ MONGO_DB_URI = get_str_key("MONGO_DB_URI")
 
 client = MongoClient()
 client = MongoClient(MONGO_DB_URI)
-db = client["emiliarobot"]
+db = client["EmiliaRobot"]
 
 
 async def is_nsfw(event):
@@ -315,19 +315,6 @@ async def del_profanity(event):
                     dev = await event.respond(final)
                     await asyncio.sleep(10)
                     await dev.delete()
-                    
-__help__ = """
-Here is the help for the Shield module:
 
-*Group Guardian:*
-✪ Hatsune Miku can protect your group from NSFW senders, Slag word users and also can force members to use English
-
-*Commmands*
-✪ /gshield <i>on/off</i> - Enable|Disable Porn cleaning
-✪ /globalmode <i>on/off</i> - Enable|Disable English only mode
-✪ /profanity <i>on/off</i> - Enable|Disable slag word cleaning
- 
-Note: Special credits goes to Julia project and Friday Userbot
-"""
 
 __mod_name__ = "Shield"

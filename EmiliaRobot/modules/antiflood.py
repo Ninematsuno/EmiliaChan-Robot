@@ -397,29 +397,22 @@ def __chat_settings__(chat_id, user_id):
         return "Not enforcing to flood control."
     return "Antiflood has been set to`{}`.".format(limit)
 
+
 __help__ = """
-Antiflood allows you to take action on users that send more than x messages in a row. Exceeding the set flood \
-will result in restricting that user.
+Here is the help for the {} module:
 
-This will mute users if they send more than 10 messages in a row, bots are ignored.
-❂ `/flood`*:* Get the current flood control setting
+You know how sometimes, people join, send 100 messages, and ruin your chat? With antiflood, that happens no more!
 
-*Admins only:*
-❂ `/setflood <int/'no'/'off'>`*:* enables or disables flood control
+Antiflood allows you to take action on users that send more than x messages in a row. Actions are: ban/kick/mute
 
-*Example:* `/setflood 10`
-❂ `/setfloodmode <ban/kick/mute/tban/tmute> <value>`*:* Action to perform when user have exceeded flood limit. ban/kick/mute/tmute/tban
-
-*Note:*
-Value must be filled for tban and tmute!!
- It can be:
- `5m` = 5 minutes
- `6h` = 6 hours
- `3d` = 3 days
- `1w` = 1 week
+Admin commands:
+❂ /flood: Get the current antiflood settings.
+❂ /setflood <number/off/no>: Set the number of messages after which to take action on a user. Set to '0', 'off', or 'no' to disable.
+❂ /setfloodmode <action type>: Choose which action to take on a user who has been flooding. Options: ban/kick/mute
+❂ /delflood <yes/no/on/off>: If you want bot to delete messages flooded by user.
 """
 
-__mod_name__ = "Control"
+__mod_name__ = "Antiflood"
 
 FLOOD_BAN_HANDLER = MessageHandler(
     Filters.all & ~Filters.status_update & Filters.chat_type.groups,

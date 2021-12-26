@@ -1,3 +1,6 @@
+# By @TroJanzHEX
+# Improved by TeamDaisyX
+
 from pyrogram import filters
 from pyrogram.types import (
     CallbackQuery,
@@ -77,36 +80,36 @@ async def photo(client: pbot, message: Message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(text="💡 BRIGHT", callback_data="bright"),
-                        InlineKeyboardButton(text="🖼 MIXED", callback_data="mix"),
-                        InlineKeyboardButton(text="🔳 B&W", callback_data="b|w"),
+                        InlineKeyboardButton(text="BRIGHT", callback_data="bright"),
+                        InlineKeyboardButton(text="MIXED", callback_data="mix"),
+                        InlineKeyboardButton(text="B&W", callback_data="b|w"),
                     ],
                     [
-                        InlineKeyboardButton(text="🟡 CIRCLE", callback_data="circle"),
-                        InlineKeyboardButton(text="🩸 BLUR", callback_data="blur"),
-                        InlineKeyboardButton(text="🌌 BORDER", callback_data="border"),
+                        InlineKeyboardButton(text="CIRCLE", callback_data="circle"),
+                        InlineKeyboardButton(text="BLUR", callback_data="blur"),
+                        InlineKeyboardButton(text="BORDER", callback_data="border"),
                     ],
                     [
-                        InlineKeyboardButton(text="🎉 STICKER", callback_data="stick"),
-                        InlineKeyboardButton(text="↩️ ROTATE", callback_data="rotate"),
+                        InlineKeyboardButton(text="STICKER", callback_data="stick"),
+                        InlineKeyboardButton(text="ROTATE", callback_data="rotate"),
                         InlineKeyboardButton(
-                            text="🔦 CONTRAST", callback_data="contrast"
+                            text="CONTRAST", callback_data="contrast"
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="🌇 SEPIA", callback_data="sepia"),
-                        InlineKeyboardButton(text="✏️ PENCIL", callback_data="pencil"),
-                        InlineKeyboardButton(text="🐶 CARTOON", callback_data="cartoon"),
+                        InlineKeyboardButton(text="SEPIA", callback_data="sepia"),
+                        InlineKeyboardButton(text="PENCIL", callback_data="pencil"),
+                        InlineKeyboardButton(text="CARTOON", callback_data="cartoon"),
                     ],
                     [
-                        InlineKeyboardButton(text="🔄 INVERT", callback_data="inverted"),
-                        InlineKeyboardButton(text="🔮 GLITCH", callback_data="glitch"),
+                        InlineKeyboardButton(text="INVERT", callback_data="inverted"),
+                        InlineKeyboardButton(text="GLITCH", callback_data="glitch"),
                         InlineKeyboardButton(
-                            text="✂️ REMOVE BG", callback_data="removebg"
+                            text="REMOVE BG", callback_data="removebg"
                         ),
                     ],
                     [
-                        InlineKeyboardButton(text="❌ CLOSE", callback_data="close_e"),
+                        InlineKeyboardButton(text="CLOSE", callback_data="close_e"),
                     ],
                 ]
             ),
@@ -286,16 +289,16 @@ async def cb_handler(client: pbot, query: CallbackQuery):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton(text="🔴 RED 🔴", callback_data="red"),
+                            InlineKeyboardButton(text="RED", callback_data="red"),
                             InlineKeyboardButton(
-                                text="🟢 Green 🟢", callback_data="green"
+                                text="Green", callback_data="green"
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚫ Black ⚫", callback_data="black"
+                                text="Black", callback_data="black"
                             ),
-                            InlineKeyboardButton(text="🔵 Blue 🔵", callback_data="blue"),
+                            InlineKeyboardButton(text="Blue", callback_data="blue"),
                         ],
                     ]
                 ),

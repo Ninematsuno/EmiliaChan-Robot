@@ -1,3 +1,4 @@
+# Module to blacklist users and prevent them from using commands by @TheRealPhoenix
 import html
 import EmiliaRobot.modules.sql.blacklistusers_sql as sql
 from EmiliaRobot import (

@@ -1,3 +1,5 @@
+# Pokedex Module Credits Pranav Ajay 🐰Github = Red-Aura 🐹 Telegram= @madepranav
+
 import aiohttp
 from pyrogram import filters
 from EmiliaRobot import pbot as tomori

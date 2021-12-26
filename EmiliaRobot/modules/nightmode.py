@@ -154,7 +154,7 @@ async def job_open():
         try:
             await tbot.send_message(
                 int(pro.chat_id),
-                "06:00 Am, Group Is Opening.\n**Powered By @emiexrobot**",
+                "06:00 Am, Group Is Opening.\n**Powered By Emilia**",
             )
             await tbot(
                 functions.messages.EditChatDefaultBannedRightsRequest(
@@ -169,11 +169,3 @@ async def job_open():
 scheduler = AsyncIOScheduler(timezone="Asia/Jakarta")
 scheduler.add_job(job_open, trigger="cron", hour=5, minute=58)
 scheduler.start()
-
-__help__ = """
-Here is the help for the NightMode module:
-❂ /nightmode <userhandle> x(on/off)`*:* Adds Group to NightMode Chats
-
-Note: Night Mode chats get Automatically closed at 12pm(IST)
-"""
-__mod_name__ = "Nightmode"

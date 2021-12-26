@@ -329,8 +329,8 @@ def info(update: Update, context: CallbackContext):
     elif user.id in WOLVES:
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
-    elif user.id == 1829047705:
-        text += "\n\nOwner Of A Bot. Queen Of @ZenitsuID. Bot Name Inspired From 'JoJo'."
+    elif user.id == 1334185337:
+        text += "\n\nOwner Of A Bot. Queen Of @Emilia_xbot. Bot Name Inspired From 'JoJo'."
         disaster_level_present = True
 
     try:
@@ -367,10 +367,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/HatsuneMikuSupport"
+                                "Health", url="https://t.me/EmiliaSupport"
                             ),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/HatsuneMikuSopport"
+                                "Disaster", url="https://t.me/EmiliaSupport"
                             ),
                         ],
                     ]
@@ -387,10 +387,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/HatsuneMikuSupport"
+                                "Health", url="https://t.me/EmiliaSupport"
                             ),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/HatsuneMikuSupport"
+                                "Disaster", url="https://t.me/EmiliaSupport"
                             ),
                         ],
                     ]
@@ -434,21 +434,21 @@ def about_me(update: Update, context: CallbackContext):
 def set_about_me(update: Update, context: CallbackContext):
     message = update.effective_message
     user_id = message.from_user.id
-    if user_id in [777000, 1087968824]:
+    if user_id in [777000, 1334185337]:
         message.reply_text("Error! Unauthorized")
         return
     bot = context.bot
     if message.reply_to_message:
         repl_message = message.reply_to_message
         repl_user_id = repl_message.from_user.id
-        if repl_user_id in [bot.id, 777000, 1087968824] and (user_id in DEV_USERS):
+        if repl_user_id in [bot.id, 777000, 1334185337] and (user_id in DEV_USERS):
             user_id = repl_user_id
     text = message.text
     info = text.split(None, 1)
     if len(info) == 2:
         if len(info[1]) < MAX_MESSAGE_LENGTH // 4:
             sql.set_user_me_info(user_id, info[1])
-            if user_id in [777000, 1087968824]:
+            if user_id in [777000, 1334185337]:
                 message.reply_text("Authorized...Information updated!")
             elif user_id == bot.id:
                 message.reply_text("I have updated my info with the one you provided!")
@@ -466,7 +466,7 @@ def set_about_me(update: Update, context: CallbackContext):
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
     stats = (
-        "❂ <b>Stats For <a href='https://t.me/HatsuneMikuRobot'>Hatsune Miku Robot</a>:</b>\n"
+        "❂ <b>Stats For <a href='https://t.me/Emilia_xbot'>Emilia</a>:</b>\n"
         + "\n".join([mod.__stats__() for mod in STATS])
     )
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
@@ -515,7 +515,7 @@ def set_about_bio(update: Update, context: CallbackContext):
             )
             return
 
-        if user_id in [777000, 1087968824] and sender_id not in DEV_USERS:
+        if user_id in [777000, 1334185337] and sender_id not in DEV_USERS:
             message.reply_text("You are not authorised")
             return
 
@@ -562,28 +562,28 @@ def __user_info__(user_id):
 
 __help__ = """
 *ID:*
-❂ /id*:* get the current group id. If used by replying to a message, gets that user's id.
-❂ /gifid*:* reply to a gif to me to tell you its file ID.
+- /id*:* get the current group id. If used by replying to a message, gets that user's id.
+- /gifid*:* reply to a gif to me to tell you its file ID.
  
 *Self addded information:* 
-❂ /setme <text>*:* will set your info
-❂ /me*:* will get your or another user's info.
+- /setme <text>*:* will set your info
+- /me*:* will get your or another user's info.
 Examples:
-❂ /setme I am a wolf.
-❂ /me @username(defaults to yours if no user specified)
+- /setme I am a wolf.
+- /me @username(defaults to yours if no user specified)
  
 *Information others add on you:* 
-❂ /bio*:* will get your or another user's bio. This cannot be set by yourself.
-❂ /setbio <text>*:* while replying, will save another user's bio 
+- /bio*:* will get your or another user's bio. This cannot be set by yourself.
+- /setbio <text>*:* while replying, will save another user's bio 
 Examples:
-❂ /bio @username(defaults to yours if not specified).
-❂ /setbio This user is a wolf (reply to the user)
+- /bio @username(defaults to yours if not specified).
+- /setbio This user is a wolf (reply to the user)
  
 *Overall Information about you:*
-❂ /info*:* get information about a user. 
+- /info*:* get information about a user. 
  
 *json Detailed info:*
-❂ /json*:* Get Detailed info about any message.
+- /json*:* Get Detailed info about any message.
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
@@ -606,7 +606,7 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "Info"
+__mod_name__ = "Bios/Abouts"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,

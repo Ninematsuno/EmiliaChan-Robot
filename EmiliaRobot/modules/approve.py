@@ -195,6 +195,7 @@ def unapproveall_btn(update: Update, context: CallbackContext):
 __help__ = """
 Sometimes, you might trust a user not to send unwanted content.
 Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
+
 That's what approvals are for - approve of trustworthy users to allow them to send
 
 *Admin commands:*

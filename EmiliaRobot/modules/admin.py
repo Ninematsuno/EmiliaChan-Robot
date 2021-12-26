@@ -496,7 +496,7 @@ def refresh_admin(update, _):
     except KeyError:
         pass
 
-    update.effective_message.reply_text("✅ Admins cache refreshed!")
+    update.effective_message.reply_text("Admins cache refreshed!")
 
 
 @connection_status
@@ -710,7 +710,7 @@ def pinned(update: Update, context: CallbackContext) -> str:
             message_link = f"https://t.me/c/{link_chat_id}/{pinned_id}"
 
         msg.reply_text(
-            f"🔽 Pinned on {html.escape(chat.title)}.",
+            f"Pinned on {html.escape(chat.title)}.",
             reply_to_message_id=msg_id,
             parse_mode=ParseMode.HTML,
             disable_web_page_preview=True,
@@ -718,7 +718,7 @@ def pinned(update: Update, context: CallbackContext) -> str:
                 [
                     [
                         InlineKeyboardButton(
-                            text="👉 Go to message",
+                            text="Go to message",
                             url=f"https://t.me/{link_chat_id}/{pinned_id}",
                         )
                     ]
@@ -793,7 +793,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "Deleted Account"
         else:
             name = "{}".format(
                 mention_html(
@@ -809,13 +809,13 @@ def adminlist(update, context):
         # if user.username:
         #    name = escape_markdown("@" + user.username)
         if status == "creator":
-            text += "\n 🌏 Creator:"
-            text += "\n<code> • </code>{}\n".format(name)
+            text += "\nCreator:"
+            text += "\n<code> </code>{}\n".format(name)
 
             if custom_title:
-                text += f"<code> ┗━ {html.escape(custom_title)}</code>\n"
+                text += f"<code>{html.escape(custom_title)}</code>\n"
 
-    text += "\n🌟 Admins:"
+    text += "\nAdmins:"
 
     custom_admin_list = {}
     normal_admin_list = []
@@ -826,7 +826,7 @@ def adminlist(update, context):
         custom_title = admin.custom_title
 
         if user.first_name == "":
-            name = "☠ Deleted Account"
+            name = "Deleted Account"
         else:
             name = "{}".format(
                 mention_html(
@@ -846,7 +846,7 @@ def adminlist(update, context):
                 normal_admin_list.append(name)
 
     for admin in normal_admin_list:
-        text += "\n<code> • </code>{}".format(admin)
+        text += "\n<code> </code>{}".format(admin)
 
     for admin_group in custom_admin_list.copy():
         if len(custom_admin_list[admin_group]) == 1:
@@ -858,9 +858,9 @@ def adminlist(update, context):
 
     text += "\n"
     for admin_group, value in custom_admin_list.items():
-        text += "\n🚨 <code>{}</code>".format(admin_group)
+        text += "\n<code>{}</code>".format(admin_group)
         for admin in value:
-            text += "\n<code> • </code>{}".format(admin)
+            text += "\n<code> </code>{}".format(admin)
         text += "\n"
 
     try:
