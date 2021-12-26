@@ -3,8 +3,8 @@ import random
 import glob
 from PIL import Image, ImageDraw, ImageFont
 from telethon.tl.types import InputMessagesFilterPhotos
-from EmiliaRobot.events import register
-from EmiliaRobot import telethn as tbot, ubot2
+from SkyzuRobot.events import register
+from SkyzuRobot import telethn as tbot, ubot2
 
 
 def mediainfo(media):
@@ -68,7 +68,7 @@ async def logo_gen(event):
             pics.append(i)
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
-        fpath_ = glob.glob("./EmiliaRobot/resources/fonts/*")
+        fpath_ = glob.glob("./SkyzuRobot/resources/fonts/*")
         font_ = random.choice(fpath_)
     if not bg_:
         pics = []
@@ -79,7 +79,7 @@ async def logo_gen(event):
         id_ = random.choice(pics)
         bg_ = await id_.download_media()
     if not font_:
-        fpath_ = glob.glob("./EmiliaRobot/resources/fonts/*")
+        fpath_ = glob.glob("./SkyzuRobot/resources/fonts/*")
         font_ = random.choice(fpath_)
     if len(name) <= 8:
         fnt_size = 120
@@ -114,7 +114,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Emilia](https://t.me/Emilia_xbot)",
+            caption="Logo by [Skyzu Robot](https://t.me/SkyzuRobot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -198,7 +198,7 @@ async def logo_(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Emilia](https://t.me/Emilia_xbot)",
+            caption="Logo by [Skyzu Robot](https://t.me/EmiliaRobot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -210,12 +210,14 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Logo"
+__mod_name__ = "Logomaker"
 
-__help__ = """
-- /logo <text/name> - Create a logo with random view.
-- /wlogo <text/name> - Create a logo with wide view only.
+__help__ = """ This is help menu for logomaker
 
-*Image Editor:*
-- /edit <reply photo> - to edit image.
+❂ /logo <text/name> - Create a logo with random view.
+❂ /wlogo <text/name> - Create a logo with wide view only.
+
+ Image Editor :
+
+❂  /edit <reply photo> - to edit image.
 """
