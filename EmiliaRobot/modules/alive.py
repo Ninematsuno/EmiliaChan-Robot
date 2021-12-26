@@ -9,18 +9,18 @@ from EmiliaRobot.events import register
 from EmiliaRobot import telethn as tbot
 
 
-PHOTO = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
+PHOTO = "https://telegra.ph/file/d2291e02757102069946d.jpg"
 
 
 @register(pattern=("/alive"))
 async def awake(event):
     TEXT = f"**Hi [{event.sender.first_name}](tg://user?id={event.sender.id}), I'm Emilia.** \n\n"
-    TEXT += "⚪ **I'm Working Properly** \n\n"
-    TEXT += f"⚪ **My Master : [ZenitsuID](https://t.me/ZenitsuID)** \n\n"
-    TEXT += f"⚪ **Library Version :** `{telever}` \n\n"
-    TEXT += f"⚪ **Telethon Version :** `{tlhver}` \n\n"
-    TEXT += f"⚪ **Pyrogram Version :** `{pyrover}` \n\n"
-    TEXT += "**Thanks For Adding Me Here ❤️**"
+    TEXT += "❂ **I'm Working Properly** \n\n"
+    TEXT += f"❂ **My Master : [ZenitsuID](https://t.me/ZenitsuID)** \n\n"
+    TEXT += f"❂ **Library Version :** `{telever}` \n\n"
+    TEXT += f"❂ **Telethon Version :** `{tlhver}` \n\n"
+    TEXT += f"❂ **Pyrogram Version :** `{pyrover}` \n\n"
+    TEXT += "**Thanks For Adding Me Here**"
     BUTTON = [
         [
             Button.url("ʜᴇʟᴘ​", "https://t.me/Emilia_bot?start=help"),
