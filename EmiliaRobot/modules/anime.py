@@ -584,7 +584,7 @@ __help__ = """
 *Anime Quotes*
 - /animequotes*:* for anime quotes randomly as photos.
 - /quote*:* send quotes randomly as text
- """
+"""
 
 ANIME_HANDLER = DisableAbleCommandHandler("anime", anime, run_async=True)
 AIRING_HANDLER = DisableAbleCommandHandler("airing", airing, run_async=True)
