@@ -568,7 +568,6 @@ def kaizoku(update: Update, context: CallbackContext):
 def kayo(update: Update, context: CallbackContext):
     site_search(update, context, "kayo")
 
-
 __help__ = """
 *Anime search*
 - /anime <anime>*:* returns information about the anime.
