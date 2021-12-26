@@ -317,4 +317,13 @@ async def del_profanity(event):
                     await dev.delete()
 
 
+__help__ = """
+Emilia can protect your group from NSFW senders, Slag word users and also can force members to use English
+
+*Admins only:*
+- /gshield <i>on/off</i> - Enable|Disable Porn cleaning
+- /globalmode <i>on/off</i> - Enable|Disable English only mode
+- /profanity <i>on/off</i> - Enable|Disable slag word cleaning
+"""
+
 __mod_name__ = "Shield"
