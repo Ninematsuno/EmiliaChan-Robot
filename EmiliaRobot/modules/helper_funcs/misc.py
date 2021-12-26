@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-from SkyzuRobot import NO_LOAD
+from EmiliaRobot import NO_LOAD
 
 from telegram import MAX_MESSAGE_LENGTH, Bot, InlineKeyboardButton, ParseMode
 
