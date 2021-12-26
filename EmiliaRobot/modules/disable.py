@@ -316,39 +316,46 @@ if is_module_loaded(FILENAME):
     def __chat_settings__(chat_id, user_id):
         return build_curr_disabled(chat_id)
 
-    __help__ = """
-❂ /cmds*:* check the current status of disabled commands
 
-*Admins only:*
+__help__ = """
+Here is some help for the Disabling module:
 
-❂ /enable <cmd name>*:* enable that command
-❂ /disable <cmd name>*:* disable that command
-❂ /enablemodule <module name>*:* enable all commands in that module
-❂ /disablemodule <module name>*:* disable all commands in that module
-❂ /listcmds*:* list all possible toggleable commands
+Not everyone wants every feature that the bot offers. Some commands are best when left unused to avoid spam and abuse.
+
+This allows you to disable some commonly used commands, so non-admins can't use them.
+It'll also allow you to autodelete them, stopping people from bluetexting.
+
+- /cmds: check the current status of disabled commands
+
+*Admin only:*
+- /enable <cmd name>*:* Enable a command.
+- /disable <cmd name>*:* Disable a command.
+- /enablemodule <module name>*:* enable all commands in that module.
+- /disablemodule <module name>*:* disable all commands in that module.
+- /listcmds*:* list all possible toggleable commands.
 """
 
-    DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
-    DISABLE_MODULE_HANDLER = CommandHandler(
-        "disablemodule", disable_module, run_async=True
-    )
-    ENABLE_HANDLER = CommandHandler("enable", enable, run_async=True)
-    ENABLE_MODULE_HANDLER = CommandHandler(
-        "enablemodule", enable_module, run_async=True
-    )
-    COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands, run_async=True)
-    TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds, run_async=True)
+__mod_name__ = "Disabling"
 
-    dispatcher.add_handler(DISABLE_HANDLER)
-    dispatcher.add_handler(DISABLE_MODULE_HANDLER)
-    dispatcher.add_handler(ENABLE_HANDLER)
-    dispatcher.add_handler(ENABLE_MODULE_HANDLER)
-    dispatcher.add_handler(COMMANDS_HANDLER)
-    dispatcher.add_handler(TOGGLE_HANDLER)
+DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
+DISABLE_MODULE_HANDLER = CommandHandler(
+"disablemodule", disable_module, run_async=True
+)
+ENABLE_HANDLER = CommandHandler("enable", enable, run_async=True)
+ENABLE_MODULE_HANDLER = CommandHandler(
+"enablemodule", enable_module, run_async=True
+)
+COMMANDS_HANDLER = CommandHandler(["cmds", "disabled"], commands, run_async=True)
+TOGGLE_HANDLER = CommandHandler("listcmds", list_cmds, run_async=True)
 
-    __mod_name__ = "Disabling"
+dispatcher.add_handler(DISABLE_HANDLER)
+dispatcher.add_handler(DISABLE_MODULE_HANDLER)
+dispatcher.add_handler(ENABLE_HANDLER)
+dispatcher.add_handler(ENABLE_MODULE_HANDLER)
+dispatcher.add_handler(COMMANDS_HANDLER)
+dispatcher.add_handler(TOGGLE_HANDLER)
 
 else:
-    DisableAbleCommandHandler = CommandHandler
-    DisableAbleRegexHandler = RegexHandler
-    DisableAbleMessageHandler = MessageHandler
+DisableAbleCommandHandler = CommandHandler
+DisableAbleRegexHandler = RegexHandler
+DisableAbleMessageHandler = MessageHandler
