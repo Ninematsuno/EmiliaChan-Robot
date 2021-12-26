@@ -47,7 +47,7 @@ from EmiliaRobot.modules.sql.global_bans_sql import is_user_gbanned
 from EmiliaRobot.modules.sql.afk_sql import is_afk, set_afk
 from EmiliaRobot.modules.sql.users_sql import get_user_num_chats
 from EmiliaRobot.modules.helper_funcs.chat_status import sudo_plus
-from EmiliaRobotRobot.modules.helper_funcs.extraction import extract_user
+from EmiliaRobot.modules.helper_funcs.extraction import extract_user
 from EmiliaRobot import telethn
 
 
