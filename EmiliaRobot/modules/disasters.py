@@ -446,7 +446,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
-    reply = "<b>Known the Trader 🧜:</b>\n"
+    reply = "<b>Known the Trader:</b>\n"
     m = update.effective_message.reply_text(
         "<code>Gathering intel..</code>",
         parse_mode=ParseMode.HTML,
@@ -457,7 +457,7 @@ def whitelistlist(update: Update, context: CallbackContext):
         try:
             user = bot.get_chat(user_id)
 
-            reply += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
+            reply += f"{mention_html(user_id, html.escape(user.first_name))}\n"
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
@@ -475,7 +475,7 @@ def tigerlist(update: Update, context: CallbackContext):
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
-            reply += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
+            reply += f"{mention_html(user_id, html.escape(user.first_name))}\n"
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
@@ -488,12 +488,12 @@ def supportlist(update: Update, context: CallbackContext):
         "<code>Gathering intel..</code>",
         parse_mode=ParseMode.HTML,
     )
-    reply = "<b>Known the Captain 🧞:</b>\n"
+    reply = "<b>Known the Captain:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
-            reply += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
+            reply += f"{mention_html(user_id, html.escape(user.first_name))}\n"
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
@@ -507,7 +507,7 @@ def sudolist(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML,
     )
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = "<b>Known the Emperor 🧞‍♀:</b>\n"
+    reply = "<b>Known the Empero:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -526,12 +526,12 @@ def devlist(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML,
     )
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Member of family this Kingdom 🤴:</b>\n"
+    reply = "<b>Member of family this Kingdom:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
             user = bot.get_chat(user_id)
-            reply += f"• {mention_html(user_id, html.escape(user.first_name))}\n"
+            reply += f"{mention_html(user_id, html.escape(user.first_name))}\n"
         except TelegramError:
             pass
     m.edit_text(reply, parse_mode=ParseMode.HTML)
