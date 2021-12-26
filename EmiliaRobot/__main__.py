@@ -395,6 +395,11 @@ def Emilia_about_callback(update, context):
                     ],
                     [
                         InlineKeyboardButton(
+                            text="Warns​", callback_data="Emilia_warns"
+                        ),
+                    ],
+                    [
+                        InlineKeyboardButton(
                             text="sᴜᴘᴘᴏʀᴛ​", callback_data="Emilia_support"
                         ),
                         InlineKeyboardButton(
@@ -453,6 +458,22 @@ def Emilia_about_callback(update, context):
             f"\nYou can save message/media/audio or anything as notes"
             f"\nto get a note simply use # at the beginning of a word"
             f"\n\nYou can also set buttons for notes and filters (refer help menu)",
+            parse_mode=ParseMode.HTML,
+            reply_markup=InlineKeyboardMarkup(
+                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
+            ),
+        )
+    elif query.data == "Emilia_warns":
+        query.message.edit_text(
+            text=f"<b>Here is the help for the *Warning* module:</b>"
+            f"\n❂ /warns <userhandle>: get a user's number, and reason, of warns."
+            f"\n❂ /warnlist: list of all current warning filters."
+            f"\n❂ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+            f"\n❂ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
+            f"\n❂ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
+            f"\n❂ /nowarn <keyword>: stop a warning filter
+            f"\n❂ /warnlimit <num>: set the warning limit
+            f"\n❂ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
