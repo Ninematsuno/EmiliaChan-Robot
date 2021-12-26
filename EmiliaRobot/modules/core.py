@@ -1,5 +1,5 @@
-from Emilia import telethn as tbot
-from Emilia.events import register
+from EmiliaRobot import telethn as tbot
+from EmiliaRobot.events import register
 import os
 import asyncio
 import os
@@ -23,7 +23,7 @@ async def Prof(event):
     thumb = water
     message_id = event.message.id
     input_str = event.pattern_match.group(1)
-    the_plugin_file = "./Emilia/modules/{}.py".format(input_str)
+    the_plugin_file = "./EmiliaRobot/modules/{}.py".format(input_str)
     if os.path.exists(the_plugin_file):
         message_id = event.message.id
         await event.client.send_file(
