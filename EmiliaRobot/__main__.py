@@ -451,7 +451,6 @@ def Emilia_about_callback(update, context):
                 [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
             ),
         )
-
     elif query.data == "Emilia_notes":
         query.message.edit_text(
             text=f"<b>๏ Setting up notes</b>"
@@ -465,15 +464,15 @@ def Emilia_about_callback(update, context):
         )
     elif query.data == "Emilia_warns":
         query.message.edit_text(
-            text=f"<b>Here is the help for the *Warning* module:</b>"
+            text=f"<b>Here is the help for the Warning module:</b>"
             f"\n❂ /warns <userhandle>: get a user's number, and reason, of warns."
-            f"\n❂ /warnlist: list of all current warning filters."
-            f"\n❂ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
-            f"\n❂ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
-            f"\n❂ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
-            f"\n❂ /nowarn <keyword>: stop a warning filter
-            f"\n❂ /warnlimit <num>: set the warning limit
-            f"\n❂ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.",
+            "\n❂ /warnlist: list of all current warning filters."
+            "\n❂ /dwarn <userhandle>: warn a user and delete the message. After 3 warns, the user will be banned from the group. Can also be used as a reply.
+            "\n❂ /resetwarn <userhandle>: reset the warns for a user. Can also be used as a reply.
+            "\n❂ /addwarn <keyword> <reply message>: set a warning filter on a certain keyword. If you want your keyword to be a sentence, encompass it with quotes, as such: /addwarn "very angry" This is an angry user.
+            "\n❂ /nowarn <keyword>: stop a warning filter
+            "\n❂ /warnlimit <num>: set the warning limit
+            "\n\n❂ /strongwarn <on/yes/off/no>: If set to on, exceeding the warn limit will result in a ban. Else, will just punch.",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Emilia_")]]
