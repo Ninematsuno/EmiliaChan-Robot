@@ -13,16 +13,16 @@ async def _(event):
         return
     kontol = await event.reply("`Processing tiny...`")
     ik = await tbot.download_media(reply)
-    im1 = Image.open("EmiliaRobot/resources/Emilia.jpg")
+    im1 = Image.open("EmiliaRobot/resources/ken.png")
     if ik.endswith(".tgs"):
-        await tbot.download_media(reply, "emilia.tgs")
-        os.system("lottie_convert.py emilia.tgs json.json")
+        await tbot.download_media(reply, "ken.tgs")
+        os.system("lottie_convert.py ken.tgs json.json")
         json = open("json.json", "r")
         jsn = json.read()
         jsn = jsn.replace("512", "2000")
         open = ("json.json", "w").write(jsn)
-        os.system("lottie_convert.py json.json emilia.tgs")
-        file = "emilia.tgs"
+        os.system("lottie_convert.py json.json ken.tgs")
+        file = "ken.tgs"
         os.remove("json.json")
     elif ik.endswith((".gif", ".mp4")):
         iik = cv2.VideoCapture(ik)
@@ -49,7 +49,7 @@ async def _(event):
         back_im.save("o.webp", "WEBP", quality=95)
         file = "o.webp"
         os.remove(fil)
-        os.remove("e.png")
+        os.remove("k.png")
     else:
         im = Image.open(ik)
         z, d = im.size

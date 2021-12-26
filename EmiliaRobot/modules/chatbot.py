@@ -54,7 +54,7 @@ def kukirm(update: Update, context: CallbackContext) -> str:
             )
         else:
             update.effective_message.edit_text(
-                "Skyzu Chatbot disable by {}.".format(
+                "Emilia Chatbot disable by {}.".format(
                     mention_html(user.id, user.first_name)
                 ),
                 parse_mode=ParseMode.HTML,
@@ -135,7 +135,7 @@ def chatbot(update: Update, context: CallbackContext):
         Message = message.text
         bot.send_chat_action(chat_id, action="typing")
         kukiurl = requests.get(
-            "https://www.kukiapi.xyz/api/apikey=KUKIg76Fg4EIo/Natsunagi/@Skyzu/message="
+            "https://www.kukiapi.xyz/api/apikey=KUKIg76Fg4EIo/Natsunagi/@ZenitsuID/message="
             + Message
         )
         Kuki = json.loads(kukiurl.text)
@@ -163,7 +163,7 @@ __help__ = """
 Chatbot utilizes the Kuki's api which allows Kuki to talk and provide a more interactive group chat experience.
 
 *Admins only Commands*:
-❂ `/Chatbot`*:* Shows chatbot control panel
+➢ `/Chatbot`*:* Shows chatbot control panel
   
 *Powered by ItelAi*
 """
