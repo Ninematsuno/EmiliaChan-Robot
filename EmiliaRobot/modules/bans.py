@@ -546,7 +546,7 @@ def snipe(update: Update, context: CallbackContext):
                 "Couldn't send the message. Perhaps I'm not part of that group?"
             )
 
-
+__help__ = """
 Some people need to be publicly banned; spammers, annoyances, or just trolls.
 
 This module allows you to do that easily, by exposing some common actions, so everyone will see!
@@ -570,7 +570,6 @@ All commands work via handle or reply, except banme and kickme(which require no 
 *An example of temporarily muting someone:*
 /tmute @username 2h; this mutes a user for 2 hours.
 """
-
 
 __mod_name__ = "Bans"
 
