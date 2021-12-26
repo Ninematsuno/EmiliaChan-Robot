@@ -115,7 +115,7 @@ async def terminal(client, message):
         output = None
     if output:
         if len(output) > 4096:
-            with open("EmiliaRobot/output.txt", "w+") as file:
+            with open("SaitamaRobot/output.txt", "w+") as file:
                 file.write(output)
             await client.send_document(
                 message.chat.id,
@@ -123,7 +123,7 @@ async def terminal(client, message):
                 reply_to_message_id=message.message_id,
                 caption="`Output file`",
             )
-            os.remove("EmiliaRobot/output.txt")
+            os.remove("tg_bot/output.txt")
             return
         await message.reply(f"**Output:**\n`{output}`", parse_mode="markdown")
     else:

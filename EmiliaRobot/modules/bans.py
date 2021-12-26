@@ -13,6 +13,7 @@ from telegram.ext import (
     CallbackContext,
     Filters,
     CommandHandler,
+    run_async,
     CallbackQueryHandler,
 )
 from telegram.utils.helpers import mention_html
@@ -369,7 +370,7 @@ def punch(update: Update, context: CallbackContext) -> str:
         # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
-            f"{mention_html(member.user.id, html.escape(member.user.first_name))} [<code>{member.user.id}</code>] Kicked.",
+            f"{mention_html(member.user.id, html.escape(member.user.first_name))} [<code>{member.user.id}</code> Kicked.",
             parse_mode=ParseMode.HTML,
         )
         log = (
@@ -549,11 +550,9 @@ def snipe(update: Update, context: CallbackContext):
 
 __help__ = """
 *User Commands:*
-
 ❂ /kickme*:* kicks the user who issued the command
 
 *Admins only:*
-
 ❂ /ban <userhandle>*:* bans a user. (via handle, or reply)
 ❂ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
 ❂ /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
@@ -568,7 +567,7 @@ __help__ = """
 """
 
 
-__mod_name__ = "Bans/Mutes"
+__mod_name__ = "Bans"
 
 BAN_HANDLER = CommandHandler(["ban", "sban"], ban, run_async=True)
 TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban, run_async=True)

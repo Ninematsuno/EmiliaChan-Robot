@@ -45,9 +45,9 @@ import EmiliaRobot.modules.sql.userinfo_sql as sql
 from EmiliaRobot.modules.disable import DisableAbleCommandHandler
 from EmiliaRobot.modules.sql.global_bans_sql import is_user_gbanned
 from EmiliaRobot.modules.sql.afk_sql import is_afk, set_afk
-from EmiliaRobot.modules.sql.users_sql import get_user_num_chats
+from EmiliaRobotRobot.modules.sql.users_sql import get_user_num_chats
 from EmiliaRobot.modules.helper_funcs.chat_status import sudo_plus
-from EmiliaRobot.modules.helper_funcs.extraction import extract_user
+from EmiliaRobotRobot.modules.helper_funcs.extraction import extract_user
 from EmiliaRobot import telethn
 
 
@@ -330,7 +330,7 @@ def info(update: Update, context: CallbackContext):
         text += "\n\nThe Disaster level of this person is 'Soldier'."
         disaster_level_present = True
     elif user.id == 1829047705:
-        text += "\n\nOwner Of A Bot. Queen Of @skyzu. Bot Name Inspired From 'JoJo'."
+        text += "\n\nOwner Of A Bot. Queen Of @ZenitsuID. Bot Name Inspired From 'JoJo'."
         disaster_level_present = True
 
     try:
@@ -367,10 +367,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/ProjectSkyzu"
+                                "Health", url="https://t.me/HatsuneMikuSupport"
                             ),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/ProjectSkyzu"
+                                "Disaster", url="https://t.me/HatsuneMikuSopport"
                             ),
                         ],
                     ]
@@ -387,10 +387,10 @@ def info(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                "Health", url="https://t.me/ProjectSkyzu"
+                                "Health", url="https://t.me/HatsuneMikuSupport"
                             ),
                             InlineKeyboardButton(
-                                "Disaster", url="https://t.me/ProjectSkyzu"
+                                "Disaster", url="https://t.me/HatsuneMikuSupport"
                             ),
                         ],
                     ]
@@ -466,7 +466,7 @@ def set_about_me(update: Update, context: CallbackContext):
 @sudo_plus
 def stats(update: Update, context: CallbackContext):
     stats = (
-        "❂ <b>Stats For <a href='https://t.me/SkyzuRobot'>Skyzu Robot</a>:</b>\n"
+        "❂ <b>Stats For <a href='https://t.me/HatsuneMikuRobot'>Hatsune Miku Robot</a>:</b>\n"
         + "\n".join([mod.__stats__() for mod in STATS])
     )
     result = re.sub(r"(\d+)", r"<code>\1</code>", stats)
@@ -584,14 +584,6 @@ Examples:
  
 *json Detailed info:*
 ❂ /json*:* Get Detailed info about any message.
- 
-*AFk:*
-When marked as AFK, any mentions will be replied to with a message stating that you're not available!
-❂ /afk <reason>*:* Mark yourself as AFK.
-  - brb <reason>: Same as the afk command, but not a command. 
-  
-*What is that health thingy?*
- Come and see [HP System explained](https://t.me/KennedyProject/44)
 """
 
 SET_BIO_HANDLER = DisableAbleCommandHandler("setbio", set_about_bio, run_async=True)
@@ -614,7 +606,7 @@ dispatcher.add_handler(GET_BIO_HANDLER)
 dispatcher.add_handler(SET_ABOUT_HANDLER)
 dispatcher.add_handler(GET_ABOUT_HANDLER)
 
-__mod_name__ = "Info & AFK"
+__mod_name__ = "Info"
 __command_list__ = ["setbio", "bio", "setme", "me", "info"]
 __handlers__ = [
     ID_HANDLER,

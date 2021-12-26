@@ -53,7 +53,7 @@ async def _(event):
             title = gresults["titles"][i]
             link = gresults["links"][i]
             desc = gresults["descriptions"][i]
-            msg += f"[{title}]({link})\n**{desc}**\n\n"
+            msg += f"❍[{title}]({link})\n**{desc}**\n\n"
         except IndexError:
             break
     await webevent.edit(
@@ -268,7 +268,7 @@ async def apk(e):
             + app_link
             + "'>View in Play Store</a>"
         )
-        app_details += "\n\n===> Emilia <==="
+        app_details += "\n\n===> Hatsune <==="
         await e.reply(app_details, link_preview=True, parse_mode="HTML")
     except IndexError:
         await e.reply("No result found in search. Please enter **Valid app name**")
@@ -276,19 +276,18 @@ async def apk(e):
         await e.reply("Exception Occured:- " + str(err))
 
 
-__help__ = """
-- /google <query>*:* Perform a google search
-- /image <query>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
-- /app <appname>*:* Searches for an app in Play Store and returns its details.
-- /reverse: Does a reverse image search of the media which it was replied to.
-- /gps <location>*:* Get gps location.
-- /github <username>*:* Get information about a GitHub user.
-- /country <country name>*:* Gathering info about given country.
-- /imdb <Movie name>*:* Get full info about a movie with imdb.com.
-
-Emilia <query>*:* Emilia answers the query.
-
-  💡Ex: `Emilia where is Japan?`
-"""
-
 __mod_name__ = "Search"
+
+__help__ = """
+❂ /google <query>*:* Perform a google search
+❂ /image <query>*:* Search Google for images and returns them\nFor greater no. of results specify lim, For eg: `/img hello lim=10`
+❂ /app <appname>*:* Searches for an app in Play Store and returns its details.
+❂ /reverse: Does a reverse image search of the media which it was replied to.
+❂ /gps <location>*:* Get gps location.
+❂ /github <username>*:* Get information about a GitHub user.
+❂ /country <country name>*:* Gathering info about given country
+❂ /imdb <Movie name>*:* Get full info about a movie with imdb.com
+❂ Hatsune Miku <query>*:* Hatsune Miku answers the query
+
+  💡Ex: `Hatsune Miku where is Indonesia?`
+"""

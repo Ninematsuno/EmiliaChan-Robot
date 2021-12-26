@@ -1,5 +1,3 @@
-# Module to get info about anime, characters, manga etc. by @TheRealPhoenix
-
 from jikanpy import Jikan
 from jikanpy.exceptions import APIException
 

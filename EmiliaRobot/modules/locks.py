@@ -10,7 +10,7 @@ from telegram.ext import Filters
 from telegram.utils.helpers import mention_html
 
 import EmiliaRobot.modules.sql.locks_sql as sql
-from EmiliaRobot.modules.helper_funcs.decorators import Skyzucmd, Skyzumsg
+from EmiliaRobot.modules.helper_funcs.decorators import Hatsunecmd, Hatsunemsg
 from EmiliaRobot.modules.sql.approve_sql import is_approved
 from EmiliaRobot import DRAGONS, LOGGER as log, dispatcher
 from EmiliaRobot.modules.helper_funcs.chat_status import (
@@ -129,7 +129,7 @@ def unrestr_members(
             pass
 
 
-@Skyzucmd(command="locktypes")
+@Hatsunecmd(command="locktypes")
 def locktypes(update, context):
     update.effective_message.reply_text(
         "\n • ".join(
@@ -139,7 +139,7 @@ def locktypes(update, context):
     )
 
 
-@Skyzucmd(command="lock", pass_args=True)
+@Hatsunecmd(command="lock", pass_args=True)
 @user_admin
 @loggable
 @typing_action
@@ -245,7 +245,7 @@ def lock(update, context) -> str:  # sourcery no-metrics
     return ""
 
 
-@Skyzucmd(command="unlock", pass_args=True)
+@Hatsunecmd(command="unlock", pass_args=True)
 @user_admin
 @loggable
 @typing_action
@@ -341,7 +341,7 @@ def unlock(update, context) -> str:  # sourcery no-metrics
     return ""
 
 
-@Skyzumsg((Filters.all & Filters.chat_type.groups), group=PERM_GROUP)
+@Hatsunemsg((Filters.all & Filters.chat_type.groups), group=PERM_GROUP)
 @user_not_admin
 def del_lockables(update, context):  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
@@ -478,7 +478,7 @@ def build_lock_message(chat_id):
     return res
 
 
-@Skyzucmd(command="locks")
+@Hatsunecmd(command="locks")
 @user_admin
 @typing_action
 def list_locks(update, context):
@@ -564,6 +564,5 @@ Locking bots will stop non-admins from adding bots to the chat.
 ❂ Unlocking permission *info* will allow members (non-admins) to change the group information, such as the description or the group name
 ❂ Unlocking permission *pin* will allow members (non-admins) to pinned a message in a group
 """
-
 
 __mod_name__ = "Locks"
