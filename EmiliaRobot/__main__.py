@@ -81,12 +81,10 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hello {} !*
-────────────────────────
-✪ I'm an anime theme bot designed to help manage your telegram group with a lot features.
-✪ Maintained by @ZenitsuID ✨
-────────────────────────
-Hit the /help to see available command.
+*Hey there {} !*
+My name is Emilia,
+I'm here to help you manage your groups!
+Hit /help to find out more about how to use me to my full potential.
 """
 
 buttons = [
@@ -112,7 +110,10 @@ buttons = [
 ]
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+I am a group management bot, here to help you get around and keep the order in your groups!
+I have lots of handy features, such as flood control, a warning system, a note keeping system, and even predetermined replies on certain keywords.
+
+All commands can be used with the following: / or !"""
 
 EMI_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
 
@@ -240,7 +241,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            f"<b>Hi I'm Emilia!</b>\n<b>Started working since:</b> <code>{uptime}</code>",
+            f"<b>Hi I'm Emilia !</b>\n<b>Started working since:</b> <code>{uptime}</code>",
             parse_mode=ParseMode.HTML,
         )
 
