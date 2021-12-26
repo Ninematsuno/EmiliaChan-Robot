@@ -142,6 +142,13 @@ def check_afk(update, context, user_id, fst_name, userc_id):
             )
             update.effective_message.reply_text(res, parse_mode="html")
 
+__help__ = """
+When marked as AFK, any mentions will be replied to with a message stating that you're not available!
+
+*Available commands are:*
+- /afk <reason>*:* Mark yourself as AFK.
+- brb <reason>*:* Same as the afk command, but not a command. 
+"""
 
 AFK_HANDLER = DisableAbleCommandHandler("afk", afk, run_async=True)
 AFK_REGEX_HANDLER = DisableAbleMessageHandler(
