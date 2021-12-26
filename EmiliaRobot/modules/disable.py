@@ -317,7 +317,7 @@ if is_module_loaded(FILENAME):
         return build_curr_disabled(chat_id)
 
 
-__help__ = """
+    __help__ = """
 Here is some help for the Disabling module:
 
 Not everyone wants every feature that the bot offers. Some commands are best when left unused to avoid spam and abuse.
@@ -334,8 +334,6 @@ It'll also allow you to autodelete them, stopping people from bluetexting.
 - /disablemodule <module name>*:* disable all commands in that module.
 - /listcmds*:* list all possible toggleable commands.
 """
-
-__mod_name__ = "Disabling"
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
     DISABLE_MODULE_HANDLER = CommandHandler(
@@ -354,6 +352,8 @@ __mod_name__ = "Disabling"
     dispatcher.add_handler(ENABLE_MODULE_HANDLER)
     dispatcher.add_handler(COMMANDS_HANDLER)
     dispatcher.add_handler(TOGGLE_HANDLER)
+    
+    __mod_name__ = "Disabling"
 
 else:
     DisableAbleCommandHandler = CommandHandler
