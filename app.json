@@ -1,16 +1,16 @@
 {
-      "name": "Emilia Robot",
+      "name": "Emilia Chan",
       "description": "A Powerful  Telegram group management bot with anime theme.",
       "keywords": [
          "telegram",
          "advance",
          "group",
          "manager",
-         "emiliarobot"
+         "emiliachan"
       ],
     
    "logo": "https://telegra.ph/file/def3fca6aaf3976bc24c7.jpg",
-   "repository": "https://github.com/ZenitsuID/Emilia-Robot",
+   "repository": "https://github.com/ZenitsuID/EmiliaChan-Robot",
    "addons": [
           {
          "options": {
