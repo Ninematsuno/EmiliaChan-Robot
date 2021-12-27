@@ -197,3 +197,21 @@ async def captcha_state(_, message):
         await message.reply_text("Disabled karma system.")
     else:
         await message.reply_text(usage)
+        
+        __help__ = """
+
+Upvote - Use upvote keywords like "+", "+1", "thanks", etc. to upvote a message.
+
+Downvote - Use downvote keywords like "-", "-1", etc. to downvote a message.
+
+*Commands:*
+
+- /karma: reply to a user to check that user's karma points.
+
+- /karma: send without replying to any message to check karma point list of top 10
+
+- /karmas [off/on]: Enable/Disable karma in your group.
+
+"""
+
+__mod_name__ = "Karma"
