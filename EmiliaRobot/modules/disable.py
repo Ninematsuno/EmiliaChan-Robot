@@ -21,6 +21,8 @@ FILENAME = __name__.rsplit(".", 1)[-1]
 
 # If module is due to be loaded, then setup all the magical handlers
 if is_module_loaded(FILENAME):
+    
+    from telegram.ext.dispatcher import run_async
 
     from EmiliaRobot.modules.helper_funcs.chat_status import (
         connection_status,
