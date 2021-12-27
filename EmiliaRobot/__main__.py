@@ -97,7 +97,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="Source Code", url="https://github.com/ZenitsuID/EmiliaRobot"
+            text="Source Code", url="https://github.com/ZenitsuID/EmiliaChan-Robot"
         ),
         InlineKeyboardButton(text="Support", url=f"https://t.me/{SUPPORT_CHAT}"),
     ],
